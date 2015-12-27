@@ -1,0 +1,55 @@
+.registrationFormGroup{
+	padding: 10px;
+}
+.registrationFormLabel{
+	text-align: right;
+}
+.friendListContainer{
+	border: 1px solid #d3d3d3; 
+	
+}
+.friendListContain{
+	height: 75px;
+	border: 1px solid #D3D3D3;
+	margin-top:5px;
+}
+.friendListProfileImg{
+	width:75px; 
+	height:75px;
+	float:left;
+}
+.friendListName{
+	text-align:center;
+	width: 100%;
+	font-size: 20px;
+}
+.friendListFrdBtn{
+	text-align:center;
+	width: 100%;
+}
+.friendListDetailDiv{
+	padding: 5px;
+    text-align: center;
+    width: 100%;
+}
+.postUserName{
+	font-size: 20px;
+	color: #009AFD;
+}
+.appTitle{
+	color:#fff;
+	padding-top: 5px;
+	padding-left:30px; 
+	font-weight: bolder; 
+	font-size: 15px; 
+	font-size: 20px;
+}
+.appUserName{
+	text-align:right; 
+	color:#fff; 
+	padding-top: 10px; 
+	padding-bottom:10px; 
+	padding-right:30px; 
+	font-size:15px; 
+	font-weight:bold;
+}

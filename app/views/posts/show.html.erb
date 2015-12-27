@@ -1,0 +1,103 @@
+
+
+	<div class="row" style="border-bottom:1px solid black; background-color: #009AFE;" >
+		<div class="col-md-4 appTitle">Social App</div>
+		<div class="col-md-7 appUserName">
+			<input type="hidden" id ="user_id" value="<%= @user.id%>">
+			Welcome <%= @user.name%>
+		</div>
+		<div class="col-md-1 appUserName">
+			Logout	
+		</div>
+	</div>	 
+			
+	<div class="row"  style="margin-top:20px;" >
+		<div class="col-md-2">&nbsp;</div>
+		<div class="col-md-5" style ="border: 1px solid #d3d3d3;">
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active" ><a href="#photo"  aria-controls="photo" role="tab" data-toggle="tab">Post Photo </a></li>
+				<li role="presentation"><a href="#text" aria-controls="text" role="tab" data-toggle="tab"> Post Text</a></li>
+			</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="photo">
+							<div class="col-md-12" style="border:1px solid #d3d3d3; padding: 10px;">
+								Upload Image Posts :
+								<%= form_for :post,url: posts_path do |f| %>
+									<div class="col-md-8">
+										<%= f.hidden_field :user_id, :value => @user.id %>
+									 	<%= f.hidden_field :category, :value => "Photo" %>
+									 	<%= f.file_field :photo %>	
+									</div>
+								 	<div class="col-md-4">
+								 		<%= f.submit "Submit", :class => "btn btn-success"  %>
+								 	</div>
+								 	
+								 <% end %>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="text">
+							<div class="col-md-12" style="border:1px solid #d3d3d3; padding: 5px; ">
+								Enter post text :
+								<%= form_for :post,url: posts_path do |f| %>
+									<div class="col-md-8">
+									 	<%= f.hidden_field :user_id, :value => @user.id %>
+									 	<%= f.hidden_field :category, :value => "Text" %>
+									 	<%= f.text_area :description, :cols => "40", :rows => "2" %>
+								 	</div>
+								 	<div class="col-md-4">
+								 		<%= f.submit "Submit", :class => "btn btn-success" %>
+								 	</div>
+								 <% end %>
+							</div>
+						</div>
+						
+					</div>
+			
+			<div class="col-md-12" style="background-color: #fff; margin-top: 10px;">
+				<% if @posts.present? %>
+					
+						<%@posts.each do |post|%>
+							<div style="background-color: #f3f3f3; border-top:1px solid #d0d0d0;">
+								<div class="postUserName">
+									<%= post.user.name%>
+								</div>
+								<%if post.category.to_s == "Photo" %>
+									<div class="thumbnail">
+										<img src="<%= post.photo.url %>" alt="..." class="img-rounded">
+									</div>
+								<%else%>
+									<div class="thumbnail">
+										<p><%= post.description%></p>
+									</div>	
+								<%end%>
+							</div> 
+						<%end%>
+					
+				<% end%>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="col-md-12 form-group">
+				
+				<input type="text" class ="form-group" id="searchFriendText" placeholder="Enter name to search">
+				<button class="btn btn-primary" id="searchFriendBtn">Search</button>
+			</div>
+			<div class="col-md-12">
+  				<ul class = "friendListContainer">
+  					<% if @friends.present? %>
+  						<% @friends.each do |friend| %>
+  							<li class= "friendListContain">
+		    					<img src="<%= friend.photo.url %>" class="friendListProfileImg">
+		    					<div class ="friendListDetailDiv">
+			    					<div class ="friendListName"><%= friend.name %></div>
+			    					<div class ="friendListFrdBtn"><button id = "<%= friend.id %>">Add Friend</button></div>
+		    					</div>
+		    				</li>
+  						<% end %>	
+  					<%end%>
+  				</ul>
+			</div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+		
