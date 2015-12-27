@@ -1,28 +1,12 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
+#SocialApp
+Social App is the app having features user registration, login, uploading posts as photos and text, adding new friends. <br>
+After downloading project steps to Run the Application:<br>
+1) Run command 'bundle install' in the project main directory.<br>
+2) Create mysql database 'social_app'.<br>
+3) Update the 'config/database.yml' file with your database name, username and password.<br>
+4) Run command 'rake db:migrate'.<br>
+5) To run the server run command 'rails s -b 0.0.0.0 -p 3000' your webbrick server will start.<br>
+6) Open the app in browser using the port no you provided.<br>
 <tt>rake doc:app</tt>.
